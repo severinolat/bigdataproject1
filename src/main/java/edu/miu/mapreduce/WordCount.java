@@ -80,8 +80,8 @@ public class WordCount extends Configured implements Tool
 		job.setJarByClass(WordCount.class);
 
 		job.setMapperClass(WordCountMapper.class);
-		job.setReducerClass(WordCountReducer.class);
-		job.setNumReduceTasks(2);
+		//job.setReducerClass(WordCountReducer.class);
+		job.setNumReduceTasks(0);
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);

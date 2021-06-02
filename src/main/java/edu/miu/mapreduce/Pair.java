@@ -72,3 +72,4 @@ public class Pair implements WritableComparable
         else
             return this.v.compareTo(p1.v);
     }
+    }
