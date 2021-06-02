@@ -67,4 +67,20 @@ public class Pair implements WritableComparable {
         else
             return this.v.compareTo(p1.v);
     }
+
+    public Text getK() {
+        return k;
+    }
+
+    public void setK(Text k) {
+        this.k = k;
+    }
+
+    public Text getV() {
+        return v;
+    }
+
+    public void setV(Text v) {
+        this.v = v;
+    }
 }
