@@ -4,7 +4,6 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.spark.sql.sources.In;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ public class PairsMapper extends Mapper<LongWritable, Text, Pair, IntWritable> {
 
     public PairsMapper(){
 
-        hashMap = new HashMap<Pair,Integer>();
+        hashMap = new HashMap<>();
     }
 
     @Override
@@ -28,6 +27,9 @@ public class PairsMapper extends Mapper<LongWritable, Text, Pair, IntWritable> {
         for(int i = 0; i< events.length; i++){
 
             for(int k=i+1; k< events.length; k++){
+
+                if(events[i].equals(events[k]))
+                    break;
                 Pair newPair = new Pair(events[i],events[k]);
                 Pair starPair = new Pair(events[i],"*");
                 updateMap(newPair);

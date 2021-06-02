@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class PairsReducer extends Reducer<Pair, IntWritable,Pair, DoubleWritable> {
 
-    private int count;
+    private double count;
 
     public PairsReducer(){
         count = 1;
@@ -17,7 +17,7 @@ public class PairsReducer extends Reducer<Pair, IntWritable,Pair, DoubleWritable
     @Override
     protected void reduce(Pair key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 
-        int sum = 0;
+        double sum = 0;
         for(IntWritable value : values)
             sum += value.get();
         if(key.v.toString().equals("*"))

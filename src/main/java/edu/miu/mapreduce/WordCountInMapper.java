@@ -97,8 +97,6 @@ public class WordCountInMapper extends Configured implements Tool{
     @Override
     public int run(String[] args) throws Exception
     {
-
-
         FileUtils.deleteDirectory(new File(args[1]));
         //FileUtil.fullyDelete(new File(args[1]));
         HadoopUtils.deletePathIfExists(getConf(), args[1]);
